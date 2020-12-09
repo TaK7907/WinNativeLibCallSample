@@ -21,8 +21,8 @@ public:
 	virtual bool Disconnect();
 	virtual bool IsConnected();
 
-	virtual bool RequestDataWrite(DataWriteRequest data);
-	virtual void GetDataWriteReult(DataWriteAnswer& data);
+	virtual bool RequestDataWrite(const DataWriteRequest data);
+	virtual void GetDataWriteAnswer(DataWriteAnswer& data);
 
 protected:
 	explicit LibCore();

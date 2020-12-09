@@ -48,7 +48,7 @@ bool LibCore::IsConnected()
 	return _isConnected;
 }
 
-bool LibCore::RequestDataWrite(DataWriteRequest data)
+bool LibCore::RequestDataWrite(const DataWriteRequest data)
 {
 	if (!_isConnected)
 		return false;
@@ -56,7 +56,7 @@ bool LibCore::RequestDataWrite(DataWriteRequest data)
 	return true;
 }
 
-void LibCore::GetDataWriteReult(DataWriteAnswer& data)
+void LibCore::GetDataWriteAnswer(DataWriteAnswer& data)
 {
 	data.result = Result::OK;
 }

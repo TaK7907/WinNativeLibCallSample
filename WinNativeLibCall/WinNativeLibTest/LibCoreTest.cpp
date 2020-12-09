@@ -54,7 +54,7 @@ namespace WinNativeLibTest
 			//1秒後に結果を確認...本番コードは正しく非同期処理しましょう
 			Suspend(1);
 			DataWriteAnswer ans;
-			sut->GetDataWriteReult(ans);
+			sut->GetDataWriteAnswer(ans);
 			Assert::IsTrue(ans.result == Result::OK, L"成功を受信していれば0");
 
 			sut->Disconnect();

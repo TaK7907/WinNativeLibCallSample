@@ -4,7 +4,7 @@ using System;
 namespace LibCoreWrapperTest
 {
     [TestClass]
-    public class UnitTest1
+    public class CoreWrapperTest
     {
         [TestMethod]
         public void TestMethod1()

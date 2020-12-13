@@ -60,3 +60,10 @@ void LibCore::GetDataWriteAnswer(DataWriteAnswer& data)
 {
 	data.result = Result::OK;
 }
+
+int LibCore::Sum(int a, int b, int c, int d)
+{
+#pragma message(__FUNCDNAME__)
+
+	return a + b + c + d;
+}

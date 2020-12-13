@@ -20,6 +20,8 @@ namespace LibCoreWrapper {
 		bool RequestDataWrite(DataWriteReq req);
 		void GetDataWriteAnswer(DataWriteAns% ans);
 
+		int SumEx(int a, int b, int c, int d);
+
 	private:
 		LibCore* _core;
 	};

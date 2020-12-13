@@ -48,6 +48,34 @@ void LibCoreWrapper::CoreWrapper::GetDataWriteAnswer(DataWriteAns% ans)
 	ans.Result = ConvertHelper::FromNativeDataWriteResult(ansNative.result);
 }
 
+/*!
+ * \brief Explicit linking example
+ * \return a + b + c + d
+ * 
+ * \remarks You may have to change the decolated function name.
+ * \see "Decorated Names" in docs.microsoft.com
+*/
+int LibCoreWrapper::CoreWrapper::SumEx(int a, int b, int c, int d)
+{
+	const auto ModuleName = L"LibCore.dll";
+	auto module = LoadLibrary(ModuleName);
+	if (!module)
+		throw gcnew DllNotFoundException(gcnew String(ModuleName));
+
+	// You should have the decolated function name in the compiled dll file.
+	const auto ProcSigSum = "?Sum@LibCore@@UAEHHHHH@Z";
+	auto proc = (bool(*)(int, int, int, int))GetProcAddress(module, ProcSigSum);
+	if (!proc) {
+		FreeLibrary(module);
+		throw gcnew MissingMethodException(gcnew String(ProcSigSum));
+	}
+
+	auto result = proc(a, b, c, d);
+	FreeLibrary(module);
+
+	return result;
+}
+
 LibCoreWrapper::CoreWrapper::CoreWrapper()
 {
 	_core = LibCore::GetInstance();

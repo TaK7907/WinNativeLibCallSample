@@ -24,6 +24,8 @@ public:
 	virtual bool RequestDataWrite(const DataWriteRequest data);
 	virtual void GetDataWriteAnswer(DataWriteAnswer& data);
 
+	virtual int Sum(int a, int b, int c, int d);
+
 protected:
 	explicit LibCore();
 

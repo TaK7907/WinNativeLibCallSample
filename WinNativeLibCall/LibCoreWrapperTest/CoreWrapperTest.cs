@@ -7,7 +7,7 @@ namespace LibCoreWrapperTest
     public class CoreWrapperTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestImplicitLinking()
         {
             var sut = new LibCoreWrapper.CoreWrapper();
 
@@ -25,13 +25,20 @@ namespace LibCoreWrapperTest
             Assert.IsTrue(sut.RequestDataWrite(req));
 
             System.Threading.Tasks.Task.Delay(1000);
-            
+
             var ans = new LibCoreWrapper.DataWriteAns();
             sut.GetDataWriteAnswer(ref ans);
             Assert.AreEqual(LibCoreWrapper.DataWriteResult.OK, ans.Result);
 
             Assert.IsTrue(sut.Disconnect());
             Assert.IsFalse(sut.IsConnected());
+        }
+
+        [TestMethod]
+        public void TestExplicitLinking()
+        {
+            var sut = new LibCoreWrapper.CoreWrapper();
+            Assert.AreEqual(4, sut.SumEx(1, 1, 1, 1));
         }
     }
 }
